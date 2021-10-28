@@ -13,32 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('pagina-home');
+Route::get('/', 'HomeController@home')->name('pagina-home');
 
-Route::get('/products', function () {
-    $array_paste = config('pasta');
-    $data = [
-        'paste' => $array_paste
-    ];
+Route::get('/products', 'ProductController@listProducts')->name('pagina-prodotti');
 
-    return view('products', $data);
-})->name('pagina-prodotti');
+Route::get('/product-detail/{id}', 'ProductController@productDetail')->name('pagina-dettaglio');
 
-Route::get('/product-detail/{id}', function ($id) {
-    $array_paste = config('pasta');
-    $data = [
-        'pasta' => $array_paste[$id]
-    ];
-    return view('dettagli', $data);
-    
-})->name('pagina-dettaglio');
+Route::get('/about', 'HomeController@about')->name('pagina-about');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('pagina-about');
-
-Route::get('/contacts', function () {
-    return view('contacts');
-})->name('pagina-contatti');
+Route::get('/contacts', 'HomeController@contacts')->name('pagina-contatti');

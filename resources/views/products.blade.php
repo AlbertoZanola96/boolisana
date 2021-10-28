@@ -7,10 +7,9 @@
 
     <div class="container">
         <div class="list-paste">
-            @foreach ($paste as $index => $pasta)
-                <p>
-                    <a target="_blank" href="{{ route('pagina-dettaglio', [ 'id' => $index]) }}">{{ $pasta['titolo'] }} - {{ $pasta['tipo'] }}</a>
-                </p>
+            @foreach ($paste as $pasta)
+                <a href="{{ route('pagina-dettaglio', [ 'id' => $pasta['id']]) }}">{{ $pasta['title'] }} </a>
+                <p>{{ $pasta['description']}}</p>
             @endforeach
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $pasta['titolo'])
+@section('title', $product['title'])
 
 @section('content')
-    @dump($pasta)
+    @dump($product)
 @endsection
